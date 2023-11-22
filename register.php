@@ -12,7 +12,7 @@ if(isset($_POST["register"])){
   ('$uname', '$pass', '$email')";
 
   if($con->query($query)){
-    echo("YES");
+    echo("<script>alert('yes')</script>");
   } else {
     echo "ERROR : " . $query . $con->error;
   }
