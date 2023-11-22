@@ -8,9 +8,9 @@ if(isset($_POST["login"])){
 
     $result = $con->query($query);
     
-    if($result->num_rows){
+    if($result->num_rows == 0){
       // $row = $result->fetch_assoc();
-        echo("~YESS~");
+      $error = "invalide password or username!";
     }
     $uname = "";
     $pass = "";
@@ -38,7 +38,7 @@ if(isset($_POST["login"])){
         Password
       </label>
       <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" name="password" placeholder="******************">
-      <p class="text-red-500 text-xs italic hidden">Please choose a password.</p>
+      <?php if(isset($error)){echo "<p class='text-red-500 text-xs italic'>invalide password.</p>";}  ?>
     </div>
     <div class="flex items-center justify-between">
       <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" name="login" value="login>
