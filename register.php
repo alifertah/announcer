@@ -1,21 +1,11 @@
 <?php
 include("conect.php");
-    
+include("insert.php");  
 if(isset($_POST["register"])){
   $uname = $_POST["user"];
   $pass = $_POST["password"];
   $email = $_POST["email"];
-  
-  $query = "INSERT INTO `user` (
-    `username`, `password`, `email`
-  ) VALUES 
-  ('$uname', '$pass', '$email')";
-
-  if($con->query($query)){
-    echo("<script>alert('yes')</script>");
-  } else {
-    echo "ERROR : " . $query . $con->error;
-  }
+  insertion($pass, 'user', $uname, $email);
 }
 ?>
 <!DOCTYPE html>
@@ -49,7 +39,6 @@ if(isset($_POST["register"])){
         Password
       </label>
       <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" name="password" placeholder="******************">
-      <?php if(isset($error)){echo "<p class='text-red-500 text-xs italic'> $error </p>";}  ?>
     </div>
     <div class="flex items-center justify-between">
       <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" name="register" value="register">
