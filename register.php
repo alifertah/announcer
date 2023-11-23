@@ -5,7 +5,10 @@ if(isset($_POST["register"])){
   $uname = $_POST["user"];
   $pass = $_POST["password"];
   $email = $_POST["email"];
-  insertion($pass, 'user', $uname, $email);
+  $user_type = $_POST["select"];
+  if(insertion($pass, 'user', $uname, $email, $user_type)){
+    header("Location: http://localhost/alifertah_avito_v2/index.php");
+  }
 }
 ?>
 <!DOCTYPE html>
@@ -40,13 +43,24 @@ if(isset($_POST["register"])){
       </label>
       <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" name="password" placeholder="******************">
     </div>
+
+    <div class="mb-6">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="type">
+        type
+      </label>
+      <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="select" name="select" >
+        <option value="annonceur">Utilisateur</option> 
+        <option value="utilisateur" selected>Annonceur </option> 
+      </select>
+    </div>
+
     <div class="flex items-center justify-between">
       <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" name="register" value="register">
         Sign In
       </button>
-      <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
-        Forgot Password?
-      </a>
+    <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="index.php">
+      login
+    </a>
     </div>
   </form>
 </div>
