@@ -7,14 +7,15 @@ if(isset($_POST["login"])){
     $query = "SELECT * FROM `user` where username = '$uname' and password = '$pass';"; 
 
     $result = $con->query($query);
-    
+    $col = $result->fetch_assoc();
     $error = "";
-    if($result->num_rows == 0){
-      $error = "invalide password or username!";
-    }
-    else{
+    if($result->num_rows && $col["user_type"] == "utilisateur"){
       header("Location: http://localhost/alifertah_avito_v2/announce/announces.php");
     }
+    else{
+      $error = "invalide password or username!";
+    }
+
     $uname = "";
     $pass = "";
     $result = "";
