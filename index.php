@@ -10,8 +10,10 @@ if(isset($_POST["login"])){
     
     $error = "";
     if($result->num_rows == 0){
-      // $row = $result->fetch_assoc();
       $error = "invalide password or username!";
+    }
+    else{
+      header("Location: http://localhost/alifertah_avito_v2/announce/announces.php");
     }
     $uname = "";
     $pass = "";
