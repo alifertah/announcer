@@ -62,6 +62,7 @@ if(isset($_POST["register"])){
       login
     </a>
     </div>
+    
   </form>
 </div>
 
