@@ -49,8 +49,8 @@ if(isset($_POST["register"])){
         type
       </label>
       <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="select" name="select" >
-        <option value="utilisateur">Utilisateur</option> 
-        <option value="annonceur" selected>Annonceur </option> 
+        <option value="utilisateur" selected>Utilisateur</option> 
+        <option value="annonceur" >Annonceur  </option> 
       </select>
     </div>
 

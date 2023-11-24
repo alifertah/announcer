@@ -10,7 +10,7 @@ if(isset($_POST["login"])){
     $col = $result->fetch_assoc();
     $error = "";
     if($result->num_rows && $col["user_type"] == "utilisateur"){
-      header("Location: http://localhost/alifertah_avito_v2/announce/announces.php");
+      header("Location: http://localhost/alifertah_avito_v2/user/utilisateur.php");
     }
     else{
       $error = "invalide password or username!";
