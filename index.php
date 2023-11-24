@@ -9,8 +9,12 @@ if(isset($_POST["login"])){
     $result = $con->query($query);
     $col = $result->fetch_assoc();
     $error = "";
-    if($result->num_rows && $col["user_type"] == "utilisateur"){
+    if($result->num_rows && $col["user_type"] == "utilisateur" || 
+    $result->num_rows && $col["user_type"] == "annonceur"){
       header("Location: http://localhost/alifertah_avito_v2/user/utilisateur.php");
+    }
+    if($result->num_rows && $col["user_type"] == "admin"){
+      header("Location: http://localhost/alifertah_avito_v2/admin.php");
     }
     else{
       $error = "invalide password or username!";

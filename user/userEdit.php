@@ -11,8 +11,10 @@ if(isset($_POST["edit"])){
     $sql = "UPDATE user SET username='$newUsername', email='$newEmail', password='$newPassword' WHERE username='$oldUsername'";
     
     if($con->query($sql)){
-        echo "YES";
+      echo("<script>alert('user edited successfully!')</script>");
     }
+    else
+      echo("<script>alert('something went wrong')</script>");
 }
 
 ?>
