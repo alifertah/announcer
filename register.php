@@ -1,6 +1,6 @@
 <?php
 include("conect.php");
-include("insert.php");  
+include("insert.php"); 
 if(isset($_POST["register"])){
   $uname = $_POST["user"];
   $pass = $_POST["password"];

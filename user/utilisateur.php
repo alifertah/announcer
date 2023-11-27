@@ -1,6 +1,8 @@
 <?php
-include ("userCrud.php");
-userCrud();
+    session_start();
+    include ("userCrud.php");
+    userCrud();
+    echo $_SESSION["username"]; 
 ?>
 <!DOCTYPE html>
 <html lang="en">

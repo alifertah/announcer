@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("conect.php");
 
 if(isset($_POST["login"])){
@@ -8,6 +9,7 @@ if(isset($_POST["login"])){
 
     $result = $con->query($query);
     $col = $result->fetch_assoc();
+    $_SESSION["username"] = $col["username"];
     $error = "";
     if($result->num_rows && $col["user_type"] == "utilisateur" || 
     $result->num_rows && $col["user_type"] == "annonceur"){
@@ -19,7 +21,6 @@ if(isset($_POST["login"])){
     else{
       $error = "invalide password or username!";
     }
-
     $uname = "";
     $pass = "";
     $result = "";

@@ -1,9 +1,8 @@
 -- Create the database
 CREATE DATABASE IF NOT EXISTS avito2;
-USE avito_database;
 
 -- Create the User table
-CREATE TABLE user (
+CREATE TABLE `user` (
     id INT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(255),
     email VARCHAR(255),
@@ -12,7 +11,7 @@ CREATE TABLE user (
 );
 
 -- Create the Annonce table
-CREATE TABLE annonce (
+CREATE TABLE `annonce` (
     id INT PRIMARY KEY AUTO_INCREMENT,
     titre VARCHAR(255),
     description TEXT,
