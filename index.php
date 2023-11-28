@@ -13,7 +13,7 @@ if(isset($_POST["login"])){
     $error = "";
     if($result->num_rows && $col["user_type"] == "utilisateur" || 
     $result->num_rows && $col["user_type"] == "annonceur"){
-      header("Location: http://localhost/alifertah_avito_v2/announce/announces.php");
+      header("Location: http://localhost/alifertah_avito_v2/announce/userDashboard.php");
 
     }
     if($result->num_rows && $col["user_type"] == "admin"){
