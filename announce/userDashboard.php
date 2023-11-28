@@ -1,7 +1,11 @@
 <?php
+    include '../conect.php';
     session_start();
     include 'userNav.php';
     userNav();
+    $id = $_SESSION["id"];
+    $result = $con->query("SELECT * FROM `user` where id = $id;");
+    $col = $result->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +17,12 @@
     <title>dashboard</title>
 </head>
 <body>
-
+    <div class="flex bg-blue-400 flex justify-around p-0 m-0">
+        <?php
+                echo "<div>" . $col["username"] . "</div> |";
+                echo "<div>" . $col["email"] . "</div> |";
+                echo "<div>" . $col["user_type"] . "</div>";
+        ?>
+    </div>
 </body>
 </html>
