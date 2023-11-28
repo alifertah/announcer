@@ -1,23 +1,35 @@
 <?php
 include("conect.php");
+  session_start();
+
+if(isset($_SESSION["id"])){
+      if( $_SESSION["type"] == "utilisateur" || 
+      $result->num_rows &&  $_SESSION["type"] == "annonceur"){
+        header("Location: http://localhost/alifertah_avito_v2/announce/userDashboard.php");
+      }
+      if( $_SESSION["type"] == "admin"){
+        header("Location: http://localhost/alifertah_avito_v2/user/utilisateur.php");
+      }
+}
 
 if(isset($_POST["login"])){
-  session_start();
     $uname = $_POST["user"];
-    $pass = $_POST["password"];
-    $query = "SELECT * FROM `user` where username = '$uname' and password = '$pass';"; 
+    $pass = $_POST["password"]; 
 
-    $result = $con->query($query);
+    $result = $con->query("SELECT * FROM `user` where username = '$uname' and password = '$pass';");
+    
     $col = $result->fetch_assoc();
-    $_SESSION["id"] = $col["id"];
-    $error = "";
-    if($result->num_rows && $col["user_type"] == "utilisateur" || 
-    $result->num_rows && $col["user_type"] == "annonceur"){
-      header("Location: http://localhost/alifertah_avito_v2/announce/userDashboard.php");
 
-    }
-    if($result->num_rows && $col["user_type"] == "admin"){
-      header("Location: http://localhost/alifertah_avito_v2/user/utilisateur.php");
+    if($result->num_rows){
+      $_SESSION["id"] = $col["id"];
+      $_SESSION["type"] = $col["user_type"];
+      if($col["user_type"] == "utilisateur" || 
+      $result->num_rows && $col["user_type"] == "annonceur"){
+        header("Location: http://localhost/alifertah_avito_v2/announce/userDashboard.php");
+      }
+      if($col["user_type"] == "admin"){
+        header("Location: http://localhost/alifertah_avito_v2/user/utilisateur.php");
+      }
     }
     else{
       $error = "invalide password or username!";

@@ -3,7 +3,6 @@
     include ("userCrud.php");
     include "../conect.php";
     userCrud();
-    echo $_SESSION["type"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
