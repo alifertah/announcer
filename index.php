@@ -1,15 +1,15 @@
 <?php
-session_start();
 include("conect.php");
 
 if(isset($_POST["login"])){
+  session_start();
     $uname = $_POST["user"];
     $pass = $_POST["password"];
     $query = "SELECT * FROM `user` where username = '$uname' and password = '$pass';"; 
 
     $result = $con->query($query);
     $col = $result->fetch_assoc();
-    $_SESSION["username"] = $col["username"];
+    $_SESSION["id"] = $col["id"];
     $error = "";
     if($result->num_rows && $col["user_type"] == "utilisateur" || 
     $result->num_rows && $col["user_type"] == "annonceur"){

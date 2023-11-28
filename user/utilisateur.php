@@ -1,8 +1,9 @@
 <?php
     session_start();
     include ("userCrud.php");
+    include "../conect.php";
     userCrud();
-    echo $_SESSION["username"]; 
+    echo $_SESSION["type"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +14,6 @@
     <title>utilisateur</title>
 </head>
 <body>
-    <h1 class="text-3xl">this is user page </h1>
+    
 </body>
 </html>
