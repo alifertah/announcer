@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "userCrud.php";
 include "../conect.php";
 userCrud();
