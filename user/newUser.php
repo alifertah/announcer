@@ -20,7 +20,6 @@ if (isset($_POST['addUser'])) {
         echo "ERROR : " . $query . $con->error;
         }
 }
-
 ?>
 
 <!DOCTYPE html>

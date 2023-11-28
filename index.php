@@ -1,10 +1,9 @@
 <?php
-include("conect.php");
+  include("conect.php");
   session_start();
 
 if(isset($_SESSION["id"])){
-      if( $_SESSION["type"] == "utilisateur" || 
-      $result->num_rows &&  $_SESSION["type"] == "annonceur"){
+      if( $_SESSION["type"] == "utilisateur" || $_SESSION["type"] == "annonceur"){
         header("Location: http://localhost/alifertah_avito_v2/announce/userDashboard.php");
       }
       if( $_SESSION["type"] == "admin"){
@@ -23,6 +22,7 @@ if(isset($_POST["login"])){
     if($result->num_rows){
       $_SESSION["id"] = $col["id"];
       $_SESSION["type"] = $col["user_type"];
+      $_SESSION["username"] = "hello";
       if($col["user_type"] == "utilisateur" || 
       $result->num_rows && $col["user_type"] == "annonceur"){
         header("Location: http://localhost/alifertah_avito_v2/announce/userDashboard.php");
@@ -47,7 +47,7 @@ if(isset($_POST["login"])){
     <script src="https://cdn.tailwindcss.com"></script>
     <title>index</title>
 </head>
-<body class="flex justify-center">
+<body class="flex justify-center flex-col">
 <div class="w-full max-w-xs">
   <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" action="index.php" method="post" name="login-form">
     <div class="mb-4">
