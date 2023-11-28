@@ -14,7 +14,7 @@ if(isset($_POST["logout"])){
 function userNav(){
     echo(
         "
-        <nav class='bg-red-700'>
+        <nav class='bg-blue-700 font-bold text-white flex justify-around'>
             <a href='userEdit.php'>edit profile</a>
             <form method='post'>
                 <button type='submit' name='logout' >logout</button>

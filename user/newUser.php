@@ -32,7 +32,7 @@ if (isset($_POST['addUser'])) {
 </head>
 <body class="flex flex-col justify-center">
 <div class="w-full max-w-xs">
-  <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" action="newUser.php  " method="post" name="newUser">
+  <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full" action="newUser.php  " method="post" name="newUser">
     
   <div class="mb-4">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="username">

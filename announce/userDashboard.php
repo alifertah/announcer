@@ -19,9 +19,9 @@
 <body>
     <div class="flex bg-blue-400 flex justify-around p-0 m-0">
         <?php
-                echo "<div>" . $col["username"] . "</div> |";
-                echo "<div>" . $col["email"] . "</div> |";
-                echo "<div>" . $col["user_type"] . "</div>";
+                echo "<div> USERNAME :"  . $col["username"] . "</div> |";
+                echo "<div> EMAIL :" . $col["email"] . "</div> |";
+                echo "<div> ACCOUNT TYPE :" . $col["user_type"] . "</div>";
         ?>
     </div>
 </body>
