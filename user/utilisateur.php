@@ -14,10 +14,12 @@
     <title>utilisateur</title>
 </head>
 <body>
-    <?php 
+    <div class="flex flex-col">
+        <?php 
             while($col = $result->fetch_assoc()){
-                echo $col["username"];
+                echo "<div class='text-xl text-center'>" . $col["username"] . "</div>";
             }
     ?>
+    </div>
 </body>
 </html>
