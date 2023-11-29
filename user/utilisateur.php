@@ -17,7 +17,7 @@
     <div class="flex flex-col">
         <?php 
             while($col = $result->fetch_assoc()){
-                echo "<div class='text-xl text-center'>" . $col["username"] . "</div>";
+                echo "<div class='text-xl flex justify-center text-left items-left'>" . $col["id"] . $col["username"] . "</div>";
             }
     ?>
     </div>
