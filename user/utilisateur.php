@@ -3,6 +3,7 @@
     include ("userCrud.php");
     include "../conect.php";
     userCrud();
+    $result = $con->query("SELECT * FROM `user`;");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +14,10 @@
     <title>utilisateur</title>
 </head>
 <body>
-    
+    <?php 
+            while($col = $result->fetch_assoc()){
+                echo $col["username"];
+            }
+    ?>
 </body>
 </html>
